@@ -1,6 +1,6 @@
 const users = require('express').Router();
 
-const { getUsers, logInUser, getUserId, getUserUsername, addUser, deleteUser } = require('../queries/users/users');
+const { getUsers, logInUser, getUserId, getUserUsername, addUser, deleteUser } = require('../../queries/users/users');
 
 users.get("/", getUsers);
 

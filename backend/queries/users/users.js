@@ -1,5 +1,5 @@
 const getUsers = async (req, res, next) => {
-
+    "working"
 }
 
 const logInUser = async (req, res, next) => {
