@@ -97,21 +97,19 @@ const addUser = async (req, res, next) => {
 
 const deleteUser = async (req, res, next) => {
     try {
-        let {userId} = req.params.id;
-        let user = ("DELETE FROM users WHERE id=$1 RETURNING *", userId)
+        await db.none(`DELETE from users WHERE id = ${req.params.id}`);
         res.status(200).json({
-            status: "success",
-            message: " user deleted",
-            payload: user
-        })
-    } catch (err){
+          status: "Success",
+          message: "User Has Been Deleted"
+        });
+      } catch (err){
         res.status(400).json({
             status: "Error",
-            message: "Error",
+            message: "User not deleted",
             payload: err
         })
-        next()
-    }
+        next(err);
+      }
 }
 
 
