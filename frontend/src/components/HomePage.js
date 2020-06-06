@@ -8,11 +8,12 @@ const HomePage = () => {
 
     useEffect(() => {
         const fetchPosts = async () => {
+            debugger
             let res = await axios({
                 method: "get",
-                url: `${API}/api/posts/`
+                url: `${API}/posts/`
             })
-            setPosts(res.data.posts)
+            setPosts(res.data.payload)
         }
         fetchPosts();
     }, [])
