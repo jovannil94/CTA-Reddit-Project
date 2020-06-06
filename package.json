@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/jovannil94/CTA-Reddit-Project/issues"
   },
-  "homepage": "https://github.com/jovannil94/CTA-Reddit-Project#readme"
+  "homepage": "https://github.com/jovannil94/CTA-Reddit-Project#readme",
+  "dependencies": {
+    "axios": "^0.19.2"
+  }
 }
