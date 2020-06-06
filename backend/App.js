@@ -6,11 +6,13 @@ const cors = require('cors');
 const app = express();
 const PORT = process.env.PORT;
 const usersRouter= require('./routes/users/users');
+const subredditsRouter= require('./routes/subreddits/subreddits');
 app.use(cors());
 app.use(bodyParser.urlencoded({extended: true}));
 app.use(bodyParser.json());
 
 app.use("/users", usersRouter);
+app.use("/subreddits", subredditsRouter);
 
 
 app.use((err, req, res, next) => {
