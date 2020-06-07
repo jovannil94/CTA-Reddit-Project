@@ -39,10 +39,10 @@ const getSubreddit = async (req, res, next) => {
 
 const addSubreddit = async (req, res, next) => {
     try {
-        let user = await db.one(
+        let subreddit = await db.one(
             `INSERT INTO subreddits (user_id, post_id, subname) VALUES('${req.body.user_id}', '${req.body.post_id}', '${req.body.subname}') RETURNING *`)
         res.status(200).json({
-            user,
+            subreddit,
             status: "Success",
             message: "Added subreddit"
         })
