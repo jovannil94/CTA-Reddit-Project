@@ -18,18 +18,18 @@ const getPosts = async (req, res, next) => {
     }
 }
 
-const getPostId = async (req, res, next) => {
+const getPostBySub = async (req, res, next) => {
     try {
-        let post = await db.one(`SELECT * FROM posts WHERE id = '${req.params.id}'`);
+        let posts = await db.one(`SELECT * FROM posts LEFT JOIN subreddits ON posts.subreddits_id = subreddits.id WHERE subreddits.id='${req.params.id}'`);
         res.status(200).json({
           status: "Success",
-          message: "post retrieved by id",
-          payload: post
+          message: "posts retrieved by sub",
+          payload: posts
         });
       } catch (err){
         res.status(400).json({
             status: "Error",
-            message: "Couldn't get post by id",
+            message: "Couldn't get posts by sub",
             payload: err
         })
         next(err);
@@ -74,4 +74,4 @@ const deletePost = async (req, res, next) => {
 
 
 
-module.exports = { getPosts, getPostId, addPost, deletePost };
+module.exports = { getPosts, getPostBySub, addPost, deletePost };
