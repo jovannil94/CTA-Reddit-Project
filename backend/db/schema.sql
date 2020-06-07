@@ -14,19 +14,18 @@ CREATE TABLE users (
     password VARCHAR
 );
 
-CREATE TABLE posts(
-    id SERIAL PRIMARY KEY,
-    user_id INT REFERENCES users(id) ON DELETE CASCADE,
-    title VARCHAR,
-    body VARCHAR,
-    picture VARCHAR
-);
-
 CREATE TABLE subreddits(
     id SERIAL PRIMARY KEY,
     user_id INT REFERENCES users(id) ON DELETE SET NULL,
-    post_id INT REFERENCES posts(id),
     subname VARCHAR
+);
+
+CREATE TABLE posts(
+    id SERIAL PRIMARY KEY,
+    user_id INT REFERENCES users(id) ON DELETE CASCADE,
+    subreddits_id INT REFERENCES posts(id) ON DELETE SET NULL,
+    title VARCHAR,
+    body VARCHAR
 );
 
 CREATE TABLE votes(
