@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import CreateSubreddit from "./CreateSubreddit";
 import axios from "axios";
 import { apiURL } from "../utilities/apiURL";
-import SubredditIndex from "./subredditIndex";
+import SubredditIndex from "./SubredditIndex";
 
 const Subreddit = () => {
     const [subreddits, setSubreddits] = useState([]);
